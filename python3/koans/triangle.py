@@ -17,15 +17,14 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    if a == b == c:
+    sides = [a, b, c]
+    unique_sides = set(sides)
+
+    if len(unique_sides) == 1:
         return 'equilateral'
-    elif b == c:
+    elif len(unique_sides) == 2:
         return 'isosceles'
-    elif a == c:
-        return 'isosceles'
-    elif a == b:
-        return 'isosceles'
-    elif a != b != c:
+    elif len(unique_sides) == 3:
         return 'scalene'
 
 # Error class used in part 2.  No need to change this code.
