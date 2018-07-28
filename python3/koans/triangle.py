@@ -17,8 +17,12 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    sides = [a, b, c]
-    unique_sides = set(sides)
+    sides = sorted([a, b, c])
+    unique_sides = sorted(set(sides))
+
+    if unique_sides[0] <= 0: raise TriangleError('Sides cannot be less or equal to zero')
+
+    if sides[2] >= sides[0] + sides[1]: raise TriangleError('A side cannot be greater than the sum of the remaining sides')
 
     if len(unique_sides) == 1:
         return 'equilateral'
